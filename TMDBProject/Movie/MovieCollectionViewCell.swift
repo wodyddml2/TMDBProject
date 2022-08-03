@@ -20,21 +20,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sectionLine: UIView!
     
     func cellStyle() {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 10, height: 10)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 8
+        self.layer.shadowColor = UIColor.black.cgColor
         
         releaseLabel.font = .systemFont(ofSize: 14)
         releaseLabel.textColor = .darkGray
         
         genreLabel.font = .boldSystemFont(ofSize: 17)
         
-        movieImage.layer.masksToBounds = true
-        movieImage.layer.cornerRadius = 6
-        
+        movieBackgroundView.layer.masksToBounds = true
+        movieBackgroundView.layer.cornerRadius = 6
         movieBackgroundView.backgroundColor = .clear
-        movieBackgroundView.layer.masksToBounds = false
-//        movieBackgroundView.layer.shadowOffset = CGSize(width: 20, height: -20)
-//        movieBackgroundView.layer.shadowOpacity = 0.7
-//        movieBackgroundView.layer.shadowRadius = 15
-//        movieBackgroundView.layer.shadowColor = UIColor.black.cgColor
+        
+        movieImage.contentMode = .scaleAspectFill
         
         rateLabel.text = "평점"
         rateLabel.movieLabel(15, .white)

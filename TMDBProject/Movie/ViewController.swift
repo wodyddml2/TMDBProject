@@ -99,11 +99,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         
-        cell.movieImage.contentMode = .scaleAspectFill
         cell.movieImage.image = UIImage(data: movieList[indexPath.row].moviePoster)
         cell.movieTitleLabel.text = movieList[indexPath.row].movieTitle
         cell.overviewLabel.text = movieList[indexPath.row].movieOverView
-        cell.rateValueLabel.text = String(format: "%.1f", movieList[indexPath.row].movieRate) 
+        cell.rateValueLabel.text = String(format: "%.1f", movieList[indexPath.row].movieRate)
         cell.releaseLabel.text = movieList[indexPath.row].movieRelease
    
         for (key, value) in genreList {
