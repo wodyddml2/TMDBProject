@@ -23,6 +23,7 @@
 		63622D15289A6E7A008CFDFF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 63622D14289A6E7A008CFDFF /* Alamofire */; };
 		63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D17289A720E008CFDFF /* MovieInfo.swift */; };
 		63622D1A289A769C008CFDFF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D19289A769C008CFDFF /* UILabel+Extension.swift */; };
+		63AAABEC289B9D75002F800A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 63AAABEB289B9D75002F800A /* JGProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63622D12289A6E71008CFDFF /* SwiftyJSON in Frameworks */,
+				63AAABEC289B9D75002F800A /* JGProgressHUD in Frameworks */,
 				63622D15289A6E7A008CFDFF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +148,7 @@
 			packageProductDependencies = (
 				63622D11289A6E71008CFDFF /* SwiftyJSON */,
 				63622D14289A6E7A008CFDFF /* Alamofire */,
+				63AAABEB289B9D75002F800A /* JGProgressHUD */,
 			);
 			productName = TMDBProject;
 			productReference = 631C63BA2899F6C50032352C /* TMDBProject.app */;
@@ -178,6 +181,7 @@
 			packageReferences = (
 				63622D10289A6E71008CFDFF /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				63622D13289A6E7A008CFDFF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				63AAABEA289B9D75002F800A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 631C63BB2899F6C50032352C /* Products */;
 			projectDirPath = "";
@@ -452,6 +456,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		63AAABEA289B9D75002F800A /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -464,6 +476,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63622D13289A6E7A008CFDFF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		63AAABEB289B9D75002F800A /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63AAABEA289B9D75002F800A /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
