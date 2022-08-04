@@ -29,7 +29,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         releaseLabel.font = .systemFont(ofSize: 14)
         releaseLabel.textColor = .darkGray
         
-        genreLabel.font = .boldSystemFont(ofSize: 17)
+        genreLabel.movieLabel(.black, .boldSystemFont(ofSize: 17))
         
         movieBackgroundView.layer.masksToBounds = true
         movieBackgroundView.layer.cornerRadius = 6
@@ -38,19 +38,19 @@ class MovieCollectionViewCell: UICollectionViewCell {
         movieImage.contentMode = .scaleAspectFill
         
         rateLabel.text = "평점"
-        rateLabel.movieLabel(15, .white)
+        rateLabel.movieLabel(.white,.systemFont(ofSize: 15))
         rateLabel.textAlignment = .center
         rateLabel.backgroundColor = UIColor(named: "rateColor")
         
-        rateValueLabel.movieLabel(15, .black)
+        rateValueLabel.movieLabel(.black, .systemFont(ofSize: 15))
         rateValueLabel.textAlignment = .center
         rateValueLabel.backgroundColor = .white
         
-        movieTitleLabel.movieLabel(19, .black)
-        overviewLabel.movieLabel(16, .darkGray)
+        movieTitleLabel.movieLabel(.black, .boldSystemFont(ofSize: 19))
+        overviewLabel.movieLabel(.darkGray, .systemFont(ofSize: 16))
         
         detailLabel.text = "자세히 보기"
-        detailLabel.font = .systemFont(ofSize: 16)
+        detailLabel.movieLabel(.darkGray, .systemFont(ofSize: 16))
         
         detailButton.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
         detailButton.tintColor = .darkGray

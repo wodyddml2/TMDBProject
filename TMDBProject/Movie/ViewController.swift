@@ -3,15 +3,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import JGProgressHUD
+import Kingfisher
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var movieCollectionView: UICollectionView!
     
     let hub = JGProgressHUD()
     
     var movieList: [MovieInfo] = []
     var genreList: [Int: String] = [:]
+    
     var changePage = 1
     var totalPage = 0
     
@@ -28,7 +30,10 @@ class ViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(rightBar))
         
+        navigationItem.backButtonTitle = " "
+        
         navigationController?.navigationBar.tintColor = .black
+        
         
         requestTMDB()
         
@@ -40,34 +45,38 @@ class ViewController: UIViewController {
     @objc func rightBar() {
         
     }
-
+    
     func requestTMDB() {
         hub.show(in: view)
-        let url = "\(EndPoint.tmdbURL)api_key=\(APIKey.TMDB)&page=\(changePage)"
+        let url = "\(EndPoint.tmdbTrendingURL)api_key=\(APIKey.TMDB)&page=\(changePage)"
         let genreURL = "\(EndPoint.tmdbGenreURL)api_key=\(APIKey.TMDB)"
         
-        AF.request(url, method: .get).validate(statusCode: 200...400).responseJSON { response in
+        AF.request(url, method: .get).validate(statusCode: 200...400).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
                 
                 for movie in json["results"].arrayValue {
                     self.totalPage = json["total_pages"].intValue
-                    // 서버 통신 할 때 이미지의 모든 변환을 이 안에서 하면 서버 통신이 느려진다. / URL타입변환까진 얼마 차이 안난다함. Data타입만 cell에서 해주자!
+                    // 서버 통신 할 때 이미지의 모든 변환을 이 안에서 하면 서버 통신이 느려진다. / URL타입변환까진 얼마 차이 안난다함
                     let imageURL = URL(string: "https://image.tmdb.org/t/p/w500\(movie["poster_path"].stringValue)")
-                    let imageData = try? Data(contentsOf: imageURL!)
+                    let backImageURL = URL(string: "https://image.tmdb.org/t/p/w500\(movie["backdrop_path"].stringValue)")
+                    
                     
                     let movieData = MovieInfo(
                         movieTitle: movie["title"].stringValue,
-                        moviePoster: imageData!,
+                        moviePoster: imageURL!,
                         movieOverView: movie["overview"].stringValue,
                         movieRate: Double(movie["vote_average"].stringValue) ?? 0,
                         movieRelease: movie["release_date"].stringValue,
-                        movieGenre: movie["genre_ids"][0].intValue
+                        movieGenre: movie["genre_ids"][0].intValue,
+                        movieID: movie["id"].intValue,
+                        movieBackPoster: backImageURL!
                     )
                     
                     self.movieList.append(movieData)
+                    
                 }
                 self.hub.dismiss(animated: true)
                 self.movieCollectionView.reloadData()
@@ -79,14 +88,14 @@ class ViewController: UIViewController {
             
         }
         
-        AF.request(genreURL, method: .get).validate(statusCode: 200...400).responseJSON { response in
+        AF.request(genreURL, method: .get).validate(statusCode: 200...400).responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-//                print("JSON: \(json)")
+                //                print("JSON: \(json)")
                 
                 for movieGenre in json["genres"].arrayValue {
-                     
+                    
                     self.genreList.updateValue(movieGenre["name"].stringValue, forKey: movieGenre["id"].intValue)
                 }
                 self.movieCollectionView.reloadData()
@@ -110,12 +119,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         
-        cell.movieImage.image = UIImage(data: movieList[indexPath.row].moviePoster)
+        cell.movieImage.kf.setImage(with: movieList[indexPath.row].moviePoster)
         cell.movieTitleLabel.text = movieList[indexPath.row].movieTitle
         cell.overviewLabel.text = movieList[indexPath.row].movieOverView
         cell.rateValueLabel.text = String(format: "%.1f", movieList[indexPath.row].movieRate)
         cell.releaseLabel.text = movieList[indexPath.row].movieRelease
-   
+        
         for (key, value) in genreList {
             if movieList[indexPath.row].movieGenre == key {
                 cell.genreLabel.text = "#\(value)"
@@ -126,17 +135,27 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         return cell
     }
-  
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width - 10
         
         return CGSize(width: width / 1.1, height: width * 1.1)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailSB = UIStoryboard(name: "Detail", bundle: nil)
+        guard let detailVC = detailSB.instantiateViewController(withIdentifier: DetailViewController.resuableIdentifier) as? DetailViewController else { return }
+        
+        detailVC.detailList = movieList[indexPath.item]
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension ViewController: UICollectionViewDataSourcePrefetching {
-
+    
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if movieList.count - 1 == indexPath.item && movieList.count < totalPage {
@@ -145,5 +164,5 @@ extension ViewController: UICollectionViewDataSourcePrefetching {
             }
         }
     }
-
+    
 }
