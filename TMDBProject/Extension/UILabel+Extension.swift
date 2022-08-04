@@ -6,5 +6,5 @@ extension UILabel {
         self.font = fonts
         self.textColor = color
     }
-   
 }
+

@@ -17,26 +17,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdb-8v-Qa0">
-                        <rect key="frame" x="193" y="51" width="41.5" height="20.5"/>
+                        <rect key="frame" x="193" y="31" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-Gu-4ki">
+                        <rect key="frame" x="170" y="79" width="87" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Bdb-8v-Qa0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5EP-ao-fye"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bdb-8v-Qa0" secondAttribute="trailing" constant="25" id="7ij-UO-MBq"/>
-                    <constraint firstItem="Bdb-8v-Qa0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7vc-2r-cAQ"/>
+                    <constraint firstItem="Bdb-8v-Qa0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-20" id="7vc-2r-cAQ"/>
+                    <constraint firstItem="Fbu-Gu-4ki" firstAttribute="centerX" secondItem="Bdb-8v-Qa0" secondAttribute="centerX" id="KDQ-u2-cgv"/>
                     <constraint firstItem="Bdb-8v-Qa0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="QuD-U8-Pub"/>
+                    <constraint firstItem="Fbu-Gu-4ki" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bdb-8v-Qa0" secondAttribute="bottom" constant="8" id="nYt-ng-IZl"/>
+                    <constraint firstAttribute="bottom" secondItem="Fbu-Gu-4ki" secondAttribute="bottom" constant="12" id="pKu-Lb-QrJ"/>
                     <constraint firstItem="Bdb-8v-Qa0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="quw-Hj-HrV"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bdb-8v-Qa0" secondAttribute="bottom" constant="8" id="tJ9-HF-Wvb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="openCloseButton" destination="Fbu-Gu-4ki" id="9Ef-WZ-GDl"/>
                 <outlet property="overviewLabel" destination="Bdb-8v-Qa0" id="WGA-zl-mpN"/>
             </connections>
             <point key="canvasLocation" x="78.985507246376812" y="-7.3660714285714279"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
+    </resources>
 </document>
