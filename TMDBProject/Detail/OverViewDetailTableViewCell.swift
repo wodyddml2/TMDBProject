@@ -12,8 +12,4 @@ class OverViewDetailTableViewCell: UITableViewCell {
         
         openCloseButton.tintColor = .black
     }
-  
-   
-//    chevron.up
-    
 }

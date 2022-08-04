@@ -5,6 +5,11 @@ import SwiftyJSON
 import JGProgressHUD
 import Kingfisher
 
+enum HeaderTitle: String, CaseIterable {
+    case OverView
+    case Cast
+}
+
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailTabelView: UITableView!
@@ -17,7 +22,7 @@ class DetailViewController: UIViewController {
     
     var detailList: MovieInfo?
     var castList: [CastInfo] = []
-
+    
     var openCloseImage = "chevron.down"
     
     override func viewDidLoad() {
@@ -85,7 +90,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return HeaderTitle.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,21 +142,21 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
-            return "OverView"
+            return HeaderTitle.OverView.rawValue
         } else {
-            return "Cast"
+            return HeaderTitle.Cast.rawValue
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
-           let changeOverview = openCloseImage == "chevron.down" ? tableView.frame.size.height / 6 : UITableView.automaticDimension
+            let changeOverview = openCloseImage == "chevron.down" ? tableView.frame.size.height / 6 : UITableView.automaticDimension
             return changeOverview
             // .automaticDimension: 테이블 뷰에서 사용하는 타입 프로퍼티로 반환된 값에 알맞는 높이를 제공한다.
         } else {
             return tableView.frame.size.height / 6
         }
-       
+        
     }
 }
 
