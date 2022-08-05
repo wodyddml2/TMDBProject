@@ -17,6 +17,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var detailButton: UIButton!
     
+    @IBOutlet weak var videoButton: UIButton!
+
     @IBOutlet weak var sectionLine: UIView!
     
     func cellStyle() {
@@ -55,7 +57,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         detailButton.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
         detailButton.tintColor = .darkGray
         
-        sectionLine.backgroundColor = .black
+        videoButton.setBackgroundImage(UIImage(systemName: "paperclip.circle.fill"), for: .normal)
+        videoButton.tintColor = .white
         
+        
+        sectionLine.backgroundColor = .black
     }
 }

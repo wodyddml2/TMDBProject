@@ -93,12 +93,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMA-nB-KDS">
+                                <rect key="frame" x="263.5" y="8" width="30.5" height="30.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jMA-nB-KDS" secondAttribute="height" id="M0c-2g-3FL"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="t63-bu-7Wm" secondAttribute="bottom" id="1S0-8f-cpp"/>
                             <constraint firstItem="MZ2-3o-M5R" firstAttribute="leading" secondItem="cVi-V2-K4V" secondAttribute="leading" constant="8" id="2GF-T9-PAc"/>
                             <constraint firstItem="x9D-90-noS" firstAttribute="height" secondItem="MZ2-3o-M5R" secondAttribute="height" id="64J-jR-qlH"/>
+                            <constraint firstAttribute="trailing" secondItem="jMA-nB-KDS" secondAttribute="trailing" constant="8" id="Amp-A0-cXn"/>
                             <constraint firstItem="x9D-90-noS" firstAttribute="leading" secondItem="MZ2-3o-M5R" secondAttribute="trailing" id="B8P-tu-FcU"/>
                             <constraint firstAttribute="bottom" secondItem="6Vj-OU-XWA" secondAttribute="bottom" id="Bvb-aD-7xw"/>
                             <constraint firstItem="t63-bu-7Wm" firstAttribute="top" secondItem="cVi-V2-K4V" secondAttribute="top" id="HNt-ea-Qq6"/>
@@ -107,7 +116,9 @@
                             <constraint firstItem="6Vj-OU-XWA" firstAttribute="leading" secondItem="cVi-V2-K4V" secondAttribute="leading" id="OPb-6i-SxO"/>
                             <constraint firstItem="6Vj-OU-XWA" firstAttribute="top" secondItem="MZ2-3o-M5R" secondAttribute="bottom" constant="8" id="Ocj-y7-6kH"/>
                             <constraint firstAttribute="trailing" secondItem="6Vj-OU-XWA" secondAttribute="trailing" id="QCv-vi-Kds"/>
+                            <constraint firstItem="jMA-nB-KDS" firstAttribute="height" secondItem="t63-bu-7Wm" secondAttribute="height" multiplier="0.1" id="RSA-4O-sVz"/>
                             <constraint firstAttribute="trailing" secondItem="t63-bu-7Wm" secondAttribute="trailing" id="fj0-PP-bcZ"/>
+                            <constraint firstItem="jMA-nB-KDS" firstAttribute="top" secondItem="cVi-V2-K4V" secondAttribute="top" constant="8" id="iIj-y8-dgI"/>
                             <constraint firstItem="MZ2-3o-M5R" firstAttribute="width" secondItem="t63-bu-7Wm" secondAttribute="width" multiplier="0.1" id="oTE-ho-Wxt"/>
                             <constraint firstItem="6Vj-OU-XWA" firstAttribute="height" secondItem="t63-bu-7Wm" secondAttribute="height" multiplier="0.35" id="qxh-GM-dcB"/>
                             <constraint firstItem="x9D-90-noS" firstAttribute="width" secondItem="MZ2-3o-M5R" secondAttribute="width" id="xx9-Kd-Rs8"/>
@@ -151,6 +162,7 @@
                 <outlet property="rateValueLabel" destination="x9D-90-noS" id="9bH-NE-Blg"/>
                 <outlet property="releaseLabel" destination="xdN-iD-cUh" id="WGS-q4-q5c"/>
                 <outlet property="sectionLine" destination="vJL-Ap-xU2" id="tEK-Md-tLC"/>
+                <outlet property="videoButton" destination="jMA-nB-KDS" id="VNO-fZ-WCZ"/>
             </connections>
             <point key="canvasLocation" x="308.69565217391306" y="128.90625"/>
         </collectionViewCell>

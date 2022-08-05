@@ -131,11 +131,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             }
         }
         
+        cell.videoButton.addTarget(self, action: #selector(videoButtonClicked), for: .touchUpInside)
+        
         cell.cellStyle()
         
         return cell
     }
     
+    @objc func videoButtonClicked(_ sender: UIButton) {
+        let webSB = UIStoryboard(name: "Web", bundle: nil)
+        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.resuableIdentifier) as? WebViewController else { return }
+        
+        webVC.movieID = movieList[sender.tag].movieID
+        
+       navigationController?.pushViewController(webVC, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width - 10
