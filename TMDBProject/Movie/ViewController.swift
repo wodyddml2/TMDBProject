@@ -48,65 +48,22 @@ class ViewController: UIViewController {
     
     func requestTMDB() {
         hub.show(in: view)
-        let url = "\(EndPoint.tmdbTrendingURL)api_key=\(APIKey.TMDB)&page=\(changePage)"
-        let genreURL = "\(EndPoint.tmdbGenreURL)api_key=\(APIKey.TMDB)"
-        
-        AF.request(url, method: .get).validate(statusCode: 200...400).responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-//                print("JSON: \(json)")
-                
-                for movie in json["results"].arrayValue {
-                    self.totalPage = json["total_pages"].intValue
-                    // 서버 통신 할 때 이미지의 모든 변환을 이 안에서 하면 서버 통신이 느려진다. / URL타입변환까진 얼마 차이 안난다함
-                    let imageURL = URL(string: "https://image.tmdb.org/t/p/w500\(movie["poster_path"].stringValue)")
-                    let backImageURL = URL(string: "https://image.tmdb.org/t/p/w500\(movie["backdrop_path"].stringValue)")
-                    
-                    
-                    let movieData = MovieInfo(
-                        movieTitle: movie["title"].stringValue,
-                        moviePoster: imageURL!,
-                        movieOverView: movie["overview"].stringValue,
-                        movieRate: Double(movie["vote_average"].stringValue) ?? 0,
-                        movieRelease: movie["release_date"].stringValue,
-                        movieGenre: movie["genre_ids"][0].intValue,
-                        movieID: movie["id"].intValue,
-                        movieBackPoster: backImageURL!
-                    )
-                    
-                    self.movieList.append(movieData)
-                    
-                }
-                self.hub.dismiss(animated: true)
+
+        RequestTMDBAPIManager.shared.requestMovie(changePage) { totalPage, movieList in
+            self.totalPage = totalPage
+            self.movieList.append(contentsOf: movieList)
+            DispatchQueue.main.async {
                 self.movieCollectionView.reloadData()
-                
-            case .failure(let error):
-                self.hub.dismiss(animated: true)
-                print(error)
             }
-            
+            self.hub.dismiss(animated: true)
         }
         
-        AF.request(genreURL, method: .get).validate(statusCode: 200...400).responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                //                print("JSON: \(json)")
-                
-                for movieGenre in json["genres"].arrayValue {
-                    
-                    self.genreList.updateValue(movieGenre["name"].stringValue, forKey: movieGenre["id"].intValue)
-                }
-                self.movieCollectionView.reloadData()
-                
-            case .failure(let error):
-                print(error)
-            }
-            
+        
+        RequestTMDBAPIManager.shared.requestGenre { genreList in
+            self.genreList = genreList
+            self.movieCollectionView.reloadData()
         }
     }
-    
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

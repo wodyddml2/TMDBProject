@@ -50,41 +50,16 @@ class DetailViewController: UIViewController {
     
     func requestCast() {
         hub.show(in: view)
-        let castURL = "\(EndPoint.tmdbURL)/\(detailList!.movieID)/credits?api_key=\(APIKey.TMDB)"
-        
-        AF.request(castURL, method: .get).validate(statusCode: 200...400).responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for cast in json["cast"].arrayValue {
-                    
-                    let profileImage = URL(string: "https://image.tmdb.org/t/p/w500/\(cast["profile_path"].stringValue)")
-                    
-                    
-                    let castData = CastInfo(
-                        realName: cast["name"].stringValue,
-                        movieName: cast["character"].stringValue,
-                        profile: profileImage!,
-                        department: cast["known_for_department"].stringValue
-                    )
-                    
-                    self.castList.append(castData)
-                    
-                }
-                self.hub.dismiss(animated: true)
-                self.detailTabelView.reloadData()
-                
-            case .failure(let error):
-                self.hub.dismiss(animated: true)
-                print(error)
-            }
+  
+        RequestTMDBAPIManager.shared.requestCast(detailList!.movieID) { castList in
+            self.castList.append(contentsOf: castList)
             
+            DispatchQueue.main.async {
+                self.detailTabelView.reloadData()
+            }
+            self.hub.dismiss(animated: true)
         }
     }
-    
-    
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
