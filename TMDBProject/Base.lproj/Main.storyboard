@@ -116,13 +116,83 @@
                     <view key="view" contentMode="scaleToFill" id="bxs-iZ-bjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnG-r1-nTR">
+                                <rect key="frame" x="0.0" y="54" width="414" height="40.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fVc-jE-zGw">
+                                        <rect key="frame" x="135" y="4.5" width="144" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9N9-yg-kuk">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="movieDayButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ZY-wY-FyS"/>
+                                                    <action selector="tvDayButtonClicked:" destination="jQd-29-7Gp" eventType="touchUpInside" id="C1x-dv-dVV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-IF-D5i">
+                                                <rect key="frame" x="77" y="0.0" width="67" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="movieWeekButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9A-lB-OeS"/>
+                                                    <action selector="tvWeekButtonClicked:" destination="jQd-29-7Gp" eventType="touchUpInside" id="kWe-9z-9hT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="fVc-jE-zGw" firstAttribute="centerY" secondItem="hnG-r1-nTR" secondAttribute="centerY" id="oNz-j2-8de"/>
+                                    <constraint firstItem="fVc-jE-zGw" firstAttribute="centerX" secondItem="hnG-r1-nTR" secondAttribute="centerX" id="rL8-YE-YBP"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mlw-Ts-gwg">
+                                <rect key="frame" x="0.0" y="94.5" width="414" height="767.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Elu-5H-Vso">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jzg-wz-ekO">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yQy-qa-L9x">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QLa-Wu-CUJ"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hnG-r1-nTR" firstAttribute="trailing" secondItem="QLa-Wu-CUJ" secondAttribute="trailing" id="016-cf-UmD"/>
+                            <constraint firstItem="hnG-r1-nTR" firstAttribute="leading" secondItem="QLa-Wu-CUJ" secondAttribute="leading" id="9zK-8G-Hnr"/>
+                            <constraint firstItem="QLa-Wu-CUJ" firstAttribute="trailing" secondItem="mlw-Ts-gwg" secondAttribute="trailing" id="bkg-vs-J6T"/>
+                            <constraint firstItem="hnG-r1-nTR" firstAttribute="top" secondItem="QLa-Wu-CUJ" secondAttribute="top" constant="10" id="fdz-si-OdF"/>
+                            <constraint firstItem="mlw-Ts-gwg" firstAttribute="top" secondItem="hnG-r1-nTR" secondAttribute="bottom" id="fz9-GE-bD2"/>
+                            <constraint firstItem="mlw-Ts-gwg" firstAttribute="leading" secondItem="QLa-Wu-CUJ" secondAttribute="leading" id="pi4-6Z-ghf"/>
+                            <constraint firstItem="hnG-r1-nTR" firstAttribute="height" secondItem="bxs-iZ-bjd" secondAttribute="height" multiplier="0.045" id="sjl-jL-PUV"/>
+                            <constraint firstItem="QLa-Wu-CUJ" firstAttribute="bottom" secondItem="mlw-Ts-gwg" secondAttribute="bottom" id="wyG-Q7-fXa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tvCollectionView" destination="mlw-Ts-gwg" id="szE-rG-l9U"/>
+                        <outlet property="tvDayButton" destination="9N9-yg-kuk" id="3XK-A8-z6O"/>
+                        <outlet property="tvWeekButton" destination="NZH-IF-D5i" id="amP-Ee-DOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0L-IE-459" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="82"/>
+            <point key="canvasLocation" x="2314" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nvb-Pa-oEb">
@@ -146,9 +216,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
