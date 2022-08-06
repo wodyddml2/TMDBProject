@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1T7-8U-y40">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wSI-J6-6FI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -9,16 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieViewController" id="BYZ-38-t0r" customClass="MovieViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BWd-NX-yvn">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="94.5" width="414" height="767.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IC7-BK-r1l">
                                     <size key="itemSize" width="128" height="128"/>
@@ -37,47 +37,118 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rn9-AZ-a0w">
+                                <rect key="frame" x="0.0" y="54" width="414" height="40.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="clY-rd-SRb">
+                                        <rect key="frame" x="135" y="4.5" width="144" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btk-Jm-ftS">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="movieDayButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XBN-0N-hxl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owf-fk-tRX">
+                                                <rect key="frame" x="77" y="0.0" width="67" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="movieWeekButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THe-My-IqI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="clY-rd-SRb" firstAttribute="centerX" secondItem="Rn9-AZ-a0w" secondAttribute="centerX" id="R6B-35-by3"/>
+                                    <constraint firstItem="clY-rd-SRb" firstAttribute="centerY" secondItem="Rn9-AZ-a0w" secondAttribute="centerY" id="sNu-n6-P1v"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BWd-NX-yvn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2d6-j1-txi"/>
-                            <constraint firstItem="BWd-NX-yvn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PAj-DL-xiI"/>
+                            <constraint firstItem="BWd-NX-yvn" firstAttribute="top" secondItem="Rn9-AZ-a0w" secondAttribute="bottom" id="3OQ-Sn-ZS7"/>
+                            <constraint firstItem="Rn9-AZ-a0w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="N7I-CR-dHO"/>
+                            <constraint firstItem="Rn9-AZ-a0w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NKp-0c-Uzq"/>
+                            <constraint firstItem="Rn9-AZ-a0w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aAr-zi-xYq"/>
                             <constraint firstItem="BWd-NX-yvn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eJ0-5V-5rq"/>
+                            <constraint firstItem="Rn9-AZ-a0w" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.045" id="qRc-pg-QrI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BWd-NX-yvn" secondAttribute="bottom" id="xhG-PO-DN9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FBN-zS-K3I"/>
                     <connections>
                         <outlet property="movieCollectionView" destination="BWd-NX-yvn" id="Ndg-HS-DSn"/>
+                        <outlet property="movieDayButton" destination="Btk-Jm-ftS" id="uxt-tB-0Re"/>
+                        <outlet property="movieWeekButton" destination="owf-fk-tRX" id="goE-Jl-Wfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="89"/>
+            <point key="canvasLocation" x="1492.753623188406" y="81.696428571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wZZ-Hx-WXw">
+            <objects>
+                <viewController id="61S-za-Tc1" customClass="ViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2la-3O-EgE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="g5X-Q3-hTx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eff-Nn-WBH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mZ-j2-McH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="82"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k5V-zP-w9B">
+            <objects>
+                <viewController storyboardIdentifier="TVViewController" id="jQd-29-7Gp" customClass="TVViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bxs-iZ-bjd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QLa-Wu-CUJ"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0L-IE-459" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2329" y="82"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Y2E-Lu-wEQ">
+        <scene sceneID="nvb-Pa-oEb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1T7-8U-y40" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wSI-J6-6FI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GVK-fr-HiO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hhq-8s-Obj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mQT-xq-QjG"/>
+                        <segue destination="61S-za-Tc1" kind="relationship" relationship="rootViewController" id="GCp-5p-wzo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQY-hX-6E6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ql4-h9-QRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="81.696428571428569"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

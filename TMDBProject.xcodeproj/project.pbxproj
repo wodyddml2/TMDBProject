@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63BD2899F6C50032352C /* AppDelegate.swift */; };
 		631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63BF2899F6C50032352C /* SceneDelegate.swift */; };
-		631C63C22899F6C50032352C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63C12899F6C50032352C /* ViewController.swift */; };
+		631C63C22899F6C50032352C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63C12899F6C50032352C /* MovieViewController.swift */; };
 		631C63C52899F6C50032352C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631C63C32899F6C50032352C /* Main.storyboard */; };
 		631C63C72899F6C50032352C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631C63C62899F6C50032352C /* Assets.xcassets */; };
 		631C63CA2899F6C50032352C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631C63C82899F6C50032352C /* LaunchScreen.storyboard */; };
@@ -23,6 +23,9 @@
 		63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D17289A720E008CFDFF /* MovieInfo.swift */; };
 		63622D1A289A769C008CFDFF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D19289A769C008CFDFF /* UILabel+Extension.swift */; };
 		636EC43F289E40AC00EEA09D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */; };
+		636EC441289E46A800EEA09D /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC440289E46A800EEA09D /* TVViewController.swift */; };
+		636EC444289E46FA00EEA09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 636EC443289E46FA00EEA09D /* Tabman */; };
+		636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC445289E4E9F00EEA09D /* ViewController.swift */; };
 		63A51880289CDF1A0081EA59 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5187F289CDF1A0081EA59 /* WebViewController.swift */; };
 		63A51882289CDF210081EA59 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A51881289CDF210081EA59 /* Web.storyboard */; };
 		63A51884289CF1960081EA59 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A51883289CF1960081EA59 /* APIManager.swift */; };
@@ -41,7 +44,7 @@
 		631C63BA2899F6C50032352C /* TMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631C63BD2899F6C50032352C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631C63BF2899F6C50032352C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		631C63C12899F6C50032352C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		631C63C12899F6C50032352C /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		631C63C42899F6C50032352C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		631C63C62899F6C50032352C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		631C63C92899F6C50032352C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +57,8 @@
 		63622D17289A720E008CFDFF /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		63622D19289A769C008CFDFF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		636EC440289E46A800EEA09D /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		636EC445289E4E9F00EEA09D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63A5187F289CDF1A0081EA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		63A51881289CDF210081EA59 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		63A51883289CF1960081EA59 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636EC444289E46FA00EEA09D /* Tabman in Frameworks */,
 				63AAAC05289BC013002F800A /* Kingfisher in Frameworks */,
 				63622D12289A6E71008CFDFF /* SwiftyJSON in Frameworks */,
 				63AAABEC289B9D75002F800A /* JGProgressHUD in Frameworks */,
@@ -108,6 +114,8 @@
 				631C63BD2899F6C50032352C /* AppDelegate.swift */,
 				631C63BF2899F6C50032352C /* SceneDelegate.swift */,
 				631C63C32899F6C50032352C /* Main.storyboard */,
+				636EC445289E4E9F00EEA09D /* ViewController.swift */,
+				636EC440289E46A800EEA09D /* TVViewController.swift */,
 				63622D0C289A6C4B008CFDFF /* Movie */,
 				63AAABEE289B9EAE002F800A /* Detail */,
 				63A5187E289CDEF60081EA59 /* Web */,
@@ -130,7 +138,7 @@
 		63622D0C289A6C4B008CFDFF /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				631C63C12899F6C50032352C /* ViewController.swift */,
+				631C63C12899F6C50032352C /* MovieViewController.swift */,
 				63622D08289A6687008CFDFF /* MovieCollectionViewCell.swift */,
 				63622D09289A6687008CFDFF /* MovieCollectionViewCell.xib */,
 			);
@@ -206,6 +214,7 @@
 				63622D14289A6E7A008CFDFF /* Alamofire */,
 				63AAABEB289B9D75002F800A /* JGProgressHUD */,
 				63AAAC04289BC013002F800A /* Kingfisher */,
+				636EC443289E46FA00EEA09D /* Tabman */,
 			);
 			productName = TMDBProject;
 			productReference = 631C63BA2899F6C50032352C /* TMDBProject.app */;
@@ -240,6 +249,7 @@
 				63622D13289A6E7A008CFDFF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				63AAABEA289B9D75002F800A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				63AAAC03289BC013002F800A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				636EC442289E46FA00EEA09D /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = 631C63BB2899F6C50032352C /* Products */;
 			projectDirPath = "";
@@ -277,13 +287,15 @@
 				63AAABF2289B9F2B002F800A /* DetailViewController.swift in Sources */,
 				63622D1A289A769C008CFDFF /* UILabel+Extension.swift in Sources */,
 				63622D0F289A6CB2008CFDFF /* ReusableProtocol.swift in Sources */,
-				631C63C22899F6C50032352C /* ViewController.swift in Sources */,
+				631C63C22899F6C50032352C /* MovieViewController.swift in Sources */,
 				631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */,
 				631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */,
 				63A51884289CF1960081EA59 /* APIManager.swift in Sources */,
 				63622D07289A5651008CFDFF /* APIKey.swift in Sources */,
 				636EC43F289E40AC00EEA09D /* UIButton+Extension.swift in Sources */,
+				636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */,
 				63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */,
+				636EC441289E46A800EEA09D /* TVViewController.swift in Sources */,
 				63AAABFA289BACA2002F800A /* CastInfo.swift in Sources */,
 				63AAAC01289BB5D1002F800A /* CastDetailTableViewCell.swift in Sources */,
 				63622D0A289A6687008CFDFF /* MovieCollectionViewCell.swift in Sources */,
@@ -524,6 +536,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		636EC442289E46FA00EEA09D /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		63AAABEA289B9D75002F800A /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
@@ -552,6 +572,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63622D13289A6E7A008CFDFF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		636EC443289E46FA00EEA09D /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636EC442289E46FA00EEA09D /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		63AAABEB289B9D75002F800A /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
