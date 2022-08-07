@@ -172,7 +172,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             webVC.movieID = weekMovieList[sender.tag].movieID
         }
-            webVC.beforePageName = TvViewController.resuableIdentifier
+            webVC.beforePageName = MovieViewController.resuableIdentifier
         
        navigationController?.pushViewController(webVC, animated: true)
     }
@@ -182,6 +182,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         return CGSize(width: width / 1.1, height: width * 1.1)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
