@@ -8,7 +8,7 @@ import JGProgressHUD
 import Kingfisher
 
 
-class TVViewController: UIViewController {
+class TvViewController: UIViewController {
     @IBOutlet weak var tvCollectionView: UICollectionView!
     
     @IBOutlet weak var tvDayButton: UIButton!
@@ -50,7 +50,7 @@ class TVViewController: UIViewController {
         
         if date == DateCycle.day.rawValue {
             let url = "\(TVEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(dayChangePage)"
-            RequestTMDBAPIManager.shared.requestMovie(url) { totalPage, movieList in
+            RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.name.rawValue, JsonItem.first_air_date.rawValue) { totalPage,movieList in
                 self.totalPage = totalPage
               
                 self.dayTVList.append(contentsOf: movieList)
@@ -62,7 +62,7 @@ class TVViewController: UIViewController {
             }
         } else {
             let url = "\(TVEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(weekChangePage)"
-            RequestTMDBAPIManager.shared.requestMovie(url) { totalPage, movieList in
+            RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.name.rawValue, JsonItem.first_air_date.rawValue) { totalPage, movieList in
                 self.totalPage = totalPage
               
                 self.weekTVList.append(contentsOf: movieList)
@@ -74,9 +74,9 @@ class TVViewController: UIViewController {
             }
         }
         
+        let genreURL = "\(TVEndPoint.tmdbGenreURL)api_key=\(APIKey.TMDB)"
         
-        
-        RequestTMDBAPIManager.shared.requestGenre { genreList in
+        RequestTMDBAPIManager.shared.requestGenre(genreURL) { genreList in
             self.genreList = genreList
             self.tvCollectionView.reloadData()
         }
@@ -105,7 +105,7 @@ class TVViewController: UIViewController {
     
 }
 
-extension TVViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if dateCycle == DateCycle.day.rawValue {
             return dayTVList.count
@@ -161,7 +161,7 @@ extension TVViewController: UICollectionViewDelegate, UICollectionViewDataSource
         } else {
             webVC.movieID = weekTVList[sender.tag].movieID
         }
-        
+            webVC.beforePageName = TvViewController.resuableIdentifier
         
        navigationController?.pushViewController(webVC, animated: true)
     }
@@ -182,12 +182,13 @@ extension TVViewController: UICollectionViewDelegate, UICollectionViewDataSource
             detailVC.detailList = weekTVList[indexPath.item]
         }
         
+        detailVC.beforePageName = TvViewController.resuableIdentifier
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
-extension TVViewController: UICollectionViewDataSourcePrefetching {
+extension TvViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {

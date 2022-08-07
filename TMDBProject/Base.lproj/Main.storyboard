@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="688" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Tv View Controller-->
         <scene sceneID="k5V-zP-w9B">
             <objects>
-                <viewController storyboardIdentifier="TVViewController" id="jQd-29-7Gp" customClass="TVViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TvViewController" id="jQd-29-7Gp" customClass="TvViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bxs-iZ-bjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

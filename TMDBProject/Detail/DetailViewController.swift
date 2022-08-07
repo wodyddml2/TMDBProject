@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
     var detailList: MovieInfo?
     var castList: [CastInfo] = []
     
+    var beforePageName: String?
+    
     var openCloseImage = "chevron.down"
     
     override func viewDidLoad() {
@@ -50,8 +52,9 @@ class DetailViewController: UIViewController {
     
     func requestCast() {
         hub.show(in: view)
-  
-        RequestTMDBAPIManager.shared.requestCast(detailList!.movieID) { castList in
+        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? MovieEndPoint.tmdbURL : TVEndPoint.tmdbURL
+        
+        RequestTMDBAPIManager.shared.requestCast(endPoint,detailList!.movieID) { castList in
             self.castList.append(contentsOf: castList)
             
             DispatchQueue.main.async {

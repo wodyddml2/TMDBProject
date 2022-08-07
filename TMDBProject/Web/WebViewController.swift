@@ -15,6 +15,7 @@ class WebViewController: UIViewController {
     
     
     var movieID: Int?
+    var beforePageName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,9 @@ class WebViewController: UIViewController {
     }
     
     func requestWeb() {
-        RequestTMDBAPIManager.shared.requestWeb(movieID!) { request in
+        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? MovieEndPoint.tmdbURL : TVEndPoint.tmdbURL
+        
+        RequestTMDBAPIManager.shared.requestWeb(endPoint,movieID!) { request in
             self.movieVideoWeb.load(request)
         }
     }

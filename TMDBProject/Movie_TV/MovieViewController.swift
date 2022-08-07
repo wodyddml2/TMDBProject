@@ -12,6 +12,13 @@ enum DateCycle: String {
     case week
 }
 
+enum JsonItem: String {
+    case title
+    case release_date
+    case name
+    case first_air_date
+}
+
 class MovieViewController: UIViewController {
     
     @IBOutlet weak var movieCollectionView: UICollectionView!
@@ -53,7 +60,7 @@ class MovieViewController: UIViewController {
         
         if date == DateCycle.day.rawValue {
             let url = "\(MovieEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(dayChangePage)"
-            RequestTMDBAPIManager.shared.requestMovie(url) { totalPage, movieList in
+            RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.title.rawValue, JsonItem.release_date.rawValue) { totalPage, movieList in
                 self.totalPage = totalPage
               
                 self.dayMovieList.append(contentsOf: movieList)
@@ -65,7 +72,7 @@ class MovieViewController: UIViewController {
             }
         } else {
             let url = "\(MovieEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(weekChangePage)"
-            RequestTMDBAPIManager.shared.requestMovie(url) { totalPage, movieList in
+            RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.title.rawValue, JsonItem.release_date.rawValue) { totalPage, movieList in
                 self.totalPage = totalPage
               
                 self.weekMovieList.append(contentsOf: movieList)
@@ -77,9 +84,10 @@ class MovieViewController: UIViewController {
             }
         }
         
+        let genreURL = "\(MovieEndPoint.tmdbGenreURL)api_key=\(APIKey.TMDB)"
         
-        
-        RequestTMDBAPIManager.shared.requestGenre { genreList in
+        RequestTMDBAPIManager.shared.requestGenre(genreURL) { genreList in
+            
             self.genreList = genreList
             self.movieCollectionView.reloadData()
         }
@@ -164,7 +172,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             webVC.movieID = weekMovieList[sender.tag].movieID
         }
-        
+            webVC.beforePageName = TvViewController.resuableIdentifier
         
        navigationController?.pushViewController(webVC, animated: true)
     }
@@ -185,6 +193,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
             detailVC.detailList = weekMovieList[indexPath.item]
         }
         
+        detailVC.beforePageName = MovieViewController.resuableIdentifier
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

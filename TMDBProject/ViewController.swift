@@ -12,7 +12,7 @@ class ViewController: TabmanViewController {
         super.viewDidLoad()
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let movieVC = sb.instantiateViewController(withIdentifier: MovieViewController.resuableIdentifier) as? MovieViewController else {return}
-        guard let tvVC = sb.instantiateViewController(withIdentifier: TVViewController.resuableIdentifier) as? TVViewController else {return}
+        guard let tvVC = sb.instantiateViewController(withIdentifier: TvViewController.resuableIdentifier) as? TvViewController else {return}
         viewControllerArr.append(contentsOf: [movieVC, tvVC])
         
         

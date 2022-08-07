@@ -23,7 +23,7 @@
 		63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D17289A720E008CFDFF /* MovieInfo.swift */; };
 		63622D1A289A769C008CFDFF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D19289A769C008CFDFF /* UILabel+Extension.swift */; };
 		636EC43F289E40AC00EEA09D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */; };
-		636EC441289E46A800EEA09D /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC440289E46A800EEA09D /* TVViewController.swift */; };
+		636EC441289E46A800EEA09D /* TvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC440289E46A800EEA09D /* TvViewController.swift */; };
 		636EC444289E46FA00EEA09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 636EC443289E46FA00EEA09D /* Tabman */; };
 		636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC445289E4E9F00EEA09D /* ViewController.swift */; };
 		63A51880289CDF1A0081EA59 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5187F289CDF1A0081EA59 /* WebViewController.swift */; };
@@ -57,7 +57,7 @@
 		63622D17289A720E008CFDFF /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		63622D19289A769C008CFDFF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		636EC440289E46A800EEA09D /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		636EC440289E46A800EEA09D /* TvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvViewController.swift; sourceTree = "<group>"; };
 		636EC445289E4E9F00EEA09D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63A5187F289CDF1A0081EA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		63A51881289CDF210081EA59 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
@@ -115,8 +115,7 @@
 				631C63BF2899F6C50032352C /* SceneDelegate.swift */,
 				631C63C32899F6C50032352C /* Main.storyboard */,
 				636EC445289E4E9F00EEA09D /* ViewController.swift */,
-				636EC440289E46A800EEA09D /* TVViewController.swift */,
-				63622D0C289A6C4B008CFDFF /* Movie */,
+				63622D0C289A6C4B008CFDFF /* Movie_TV */,
 				63AAABEE289B9EAE002F800A /* Detail */,
 				63A5187E289CDEF60081EA59 /* Web */,
 				631C63C62899F6C50032352C /* Assets.xcassets */,
@@ -135,14 +134,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		63622D0C289A6C4B008CFDFF /* Movie */ = {
+		63622D0C289A6C4B008CFDFF /* Movie_TV */ = {
 			isa = PBXGroup;
 			children = (
+				636EC440289E46A800EEA09D /* TvViewController.swift */,
 				631C63C12899F6C50032352C /* MovieViewController.swift */,
 				63622D08289A6687008CFDFF /* MovieCollectionViewCell.swift */,
 				63622D09289A6687008CFDFF /* MovieCollectionViewCell.xib */,
 			);
-			path = Movie;
+			path = Movie_TV;
 			sourceTree = "<group>";
 		};
 		63622D0D289A6C8F008CFDFF /* Protocols */ = {
@@ -295,7 +295,7 @@
 				636EC43F289E40AC00EEA09D /* UIButton+Extension.swift in Sources */,
 				636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */,
 				63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */,
-				636EC441289E46A800EEA09D /* TVViewController.swift in Sources */,
+				636EC441289E46A800EEA09D /* TvViewController.swift in Sources */,
 				63AAABFA289BACA2002F800A /* CastInfo.swift in Sources */,
 				63AAAC01289BB5D1002F800A /* CastDetailTableViewCell.swift in Sources */,
 				63622D0A289A6687008CFDFF /* MovieCollectionViewCell.swift in Sources */,
@@ -453,8 +453,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +466,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -481,8 +483,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,7 +496,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
