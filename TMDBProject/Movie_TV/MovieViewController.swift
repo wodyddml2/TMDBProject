@@ -59,7 +59,7 @@ class MovieViewController: UIViewController {
         hub.show(in: view)
         
         if date == DateCycle.day.rawValue {
-            let url = "\(MovieEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(dayChangePage)"
+            let url = "\(EndPoint.movie.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(dayChangePage)"
             RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.title.rawValue, JsonItem.release_date.rawValue) { totalPage, movieList in
                 self.totalPage = totalPage
               
@@ -71,7 +71,7 @@ class MovieViewController: UIViewController {
                 self.hub.dismiss(animated: true)
             }
         } else {
-            let url = "\(MovieEndPoint.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(weekChangePage)"
+            let url = "\(EndPoint.movie.tmdbTrendingURL)\(date)?api_key=\(APIKey.TMDB)&page=\(weekChangePage)"
             RequestTMDBAPIManager.shared.requestTMDB(url, JsonItem.title.rawValue, JsonItem.release_date.rawValue) { totalPage, movieList in
                 self.totalPage = totalPage
               
@@ -84,7 +84,7 @@ class MovieViewController: UIViewController {
             }
         }
         
-        let genreURL = "\(MovieEndPoint.tmdbGenreURL)api_key=\(APIKey.TMDB)"
+        let genreURL = "\(EndPoint.movie.tmdbGenreURL)api_key=\(APIKey.TMDB)"
         
         RequestTMDBAPIManager.shared.requestGenre(genreURL) { genreList in
             

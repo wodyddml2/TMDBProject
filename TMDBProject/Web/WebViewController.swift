@@ -29,7 +29,7 @@ class WebViewController: UIViewController {
     }
     
     func requestWeb() {
-        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? MovieEndPoint.tmdbURL : TVEndPoint.tmdbURL
+        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         
         RequestTMDBAPIManager.shared.requestWeb(endPoint,movieID!) { request in
             self.movieVideoWeb.load(request)

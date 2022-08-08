@@ -52,7 +52,7 @@ class DetailViewController: UIViewController {
     
     func requestCast() {
         hub.show(in: view)
-        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? MovieEndPoint.tmdbURL : TVEndPoint.tmdbURL
+        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         
         RequestTMDBAPIManager.shared.requestCast(endPoint,detailList!.movieID) { castList in
             self.castList.append(contentsOf: castList)

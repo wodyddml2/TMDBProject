@@ -38,6 +38,7 @@
 		63AAAC01289BB5D1002F800A /* CastDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAABFF289BB5D1002F800A /* CastDetailTableViewCell.swift */; };
 		63AAAC02289BB5D1002F800A /* CastDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63AAAC00289BB5D1002F800A /* CastDetailTableViewCell.xib */; };
 		63AAAC05289BC013002F800A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 63AAAC04289BC013002F800A /* Kingfisher */; };
+		63DF2F7428A123F700E4DE23 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DF2F7328A123F700E4DE23 /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		63AAABFC289BB5BF002F800A /* OverViewDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewDetailTableViewCell.xib; sourceTree = "<group>"; };
 		63AAABFF289BB5D1002F800A /* CastDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailTableViewCell.swift; sourceTree = "<group>"; };
 		63AAAC00289BB5D1002F800A /* CastDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastDetailTableViewCell.xib; sourceTree = "<group>"; };
+		63DF2F7328A123F700E4DE23 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				63622D19289A769C008CFDFF /* UILabel+Extension.swift */,
 				636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */,
+				63DF2F7328A123F700E4DE23 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				63622D0F289A6CB2008CFDFF /* ReusableProtocol.swift in Sources */,
 				631C63C22899F6C50032352C /* MovieViewController.swift in Sources */,
 				631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */,
+				63DF2F7428A123F700E4DE23 /* URL+Extension.swift in Sources */,
 				631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */,
 				63A51884289CF1960081EA59 /* APIManager.swift in Sources */,
 				63622D07289A5651008CFDFF /* APIKey.swift in Sources */,
