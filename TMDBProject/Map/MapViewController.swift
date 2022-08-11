@@ -61,7 +61,7 @@ extension MapViewController {
         if CLLocationManager.locationServicesEnabled() {
             checkUserCurrentLocationAuthorization(authorization)
         } else {
-            print("fuck")
+            print("사용자의 위치 설정 필요")
         }
     }
     
