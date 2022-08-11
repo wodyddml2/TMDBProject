@@ -53,7 +53,15 @@ class ViewController: TabmanViewController {
     }
     
     @objc func leftBar() {
+        let mapSB = UIStoryboard(name: "Map", bundle: nil)
+        guard let mapVC = mapSB.instantiateViewController(withIdentifier: MapViewController.resuableIdentifier) as? MapViewController else { return }
         
+        
+        
+        let mapNav = UINavigationController(rootViewController: mapVC)
+        mapNav.modalPresentationStyle = .fullScreen
+        present(mapNav, animated: true)
+
     }
     @objc func rightBar() {
         

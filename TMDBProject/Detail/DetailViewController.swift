@@ -1,7 +1,5 @@
 import UIKit
-
-import Alamofire
-import SwiftyJSON
+ 
 import JGProgressHUD
 import Kingfisher
 

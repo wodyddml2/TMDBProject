@@ -26,6 +26,9 @@
 		636EC441289E46A800EEA09D /* TvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC440289E46A800EEA09D /* TvViewController.swift */; };
 		636EC444289E46FA00EEA09D /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 636EC443289E46FA00EEA09D /* Tabman */; };
 		636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636EC445289E4E9F00EEA09D /* ViewController.swift */; };
+		6378C33928A4E63E005A3DBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C33828A4E63E005A3DBA /* MapViewController.swift */; };
+		6378C33B28A4E645005A3DBA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6378C33A28A4E645005A3DBA /* Map.storyboard */; };
+		6378C33D28A4ED31005A3DBA /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378C33C28A4ED31005A3DBA /* Theater.swift */; };
 		63A51880289CDF1A0081EA59 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5187F289CDF1A0081EA59 /* WebViewController.swift */; };
 		63A51882289CDF210081EA59 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A51881289CDF210081EA59 /* Web.storyboard */; };
 		63A51884289CF1960081EA59 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A51883289CF1960081EA59 /* APIManager.swift */; };
@@ -60,6 +63,9 @@
 		636EC43E289E40AC00EEA09D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		636EC440289E46A800EEA09D /* TvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvViewController.swift; sourceTree = "<group>"; };
 		636EC445289E4E9F00EEA09D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6378C33828A4E63E005A3DBA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6378C33A28A4E645005A3DBA /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		6378C33C28A4ED31005A3DBA /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		63A5187F289CDF1A0081EA59 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		63A51881289CDF210081EA59 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		63A51883289CF1960081EA59 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				63622D0C289A6C4B008CFDFF /* Movie_TV */,
 				63AAABEE289B9EAE002F800A /* Detail */,
 				63A5187E289CDEF60081EA59 /* Web */,
+				6378C33728A4E61D005A3DBA /* Map */,
 				631C63C62899F6C50032352C /* Assets.xcassets */,
 				631C63C82899F6C50032352C /* LaunchScreen.storyboard */,
 				631C63CB2899F6C50032352C /* Info.plist */,
@@ -160,8 +167,18 @@
 			children = (
 				63622D17289A720E008CFDFF /* MovieInfo.swift */,
 				63AAABF9289BACA2002F800A /* CastInfo.swift */,
+				6378C33C28A4ED31005A3DBA /* Theater.swift */,
 			);
 			path = InfoStruct;
+			sourceTree = "<group>";
+		};
+		6378C33728A4E61D005A3DBA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6378C33828A4E63E005A3DBA /* MapViewController.swift */,
+				6378C33A28A4E645005A3DBA /* Map.storyboard */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		63A5187E289CDEF60081EA59 /* Web */ = {
@@ -275,6 +292,7 @@
 				631C63C72899F6C50032352C /* Assets.xcassets in Resources */,
 				63AAAC02289BB5D1002F800A /* CastDetailTableViewCell.xib in Resources */,
 				631C63C52899F6C50032352C /* Main.storyboard in Resources */,
+				6378C33B28A4E645005A3DBA /* Map.storyboard in Resources */,
 				63AAABF0289B9EC9002F800A /* Detail.storyboard in Resources */,
 				63A51882289CDF210081EA59 /* Web.storyboard in Resources */,
 			);
@@ -294,7 +312,9 @@
 				631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */,
 				63DF2F7428A123F700E4DE23 /* URL+Extension.swift in Sources */,
 				631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */,
+				6378C33928A4E63E005A3DBA /* MapViewController.swift in Sources */,
 				63A51884289CF1960081EA59 /* APIManager.swift in Sources */,
+				6378C33D28A4ED31005A3DBA /* Theater.swift in Sources */,
 				63622D07289A5651008CFDFF /* APIKey.swift in Sources */,
 				636EC43F289E40AC00EEA09D /* UIButton+Extension.swift in Sources */,
 				636EC446289E4E9F00EEA09D /* ViewController.swift in Sources */,
