@@ -6,8 +6,12 @@ import SwiftUI
 class MapViewController: UIViewController {
 
     @IBOutlet weak var movieTheaterMapView: MKMapView!
+    @IBOutlet weak var currentLocationButton: UIButton!
+    
     
     let theaterList = TheaterList()
+    
+    var currentLocation: CLLocationCoordinate2D?
     
     let locationManager = CLLocationManager()
     
@@ -19,7 +23,10 @@ class MapViewController: UIViewController {
         
         locationManager.delegate = self
        
-        
+        currentLocationButton.setImage(UIImage(systemName: "location.circle"), for: .normal)
+        currentLocationButton.setTitle("", for: .normal)
+        currentLocationButton.backgroundColor = .white
+        currentLocationButton.tintColor = .darkGray
     }
     
     
@@ -28,6 +35,7 @@ class MapViewController: UIViewController {
     }
     
     @objc func rightButtonClicked() {
+       
         showNearbyTheaterAlert()
     }
 
@@ -45,7 +53,10 @@ class MapViewController: UIViewController {
        
     }
     
-
+    @IBAction func currentLocationButtonClicked(_ sender: UIButton) {
+        setRegionAnnotation(currentLocation ?? CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270), "현재 위치", 1000)
+    }
+    
 }
 
 extension MapViewController {
@@ -109,6 +120,7 @@ extension MapViewController {
         
         let cancle = UIAlertAction(title: "취소", style: .cancel)
         let all = UIAlertAction(title: "전체보기", style: .default) { _ in
+            self.movieTheaterMapView.removeAnnotations(self.movieTheaterMapView.annotations)
             for list in self.theaterList.mapAnnotations {
                     self.setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 14000)
             }
@@ -139,6 +151,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             setRegionAnnotation(coordinate, "현재 위치", 1000)
+            currentLocation = coordinate
         }
         
         locationManager.stopUpdatingLocation()

@@ -19,23 +19,38 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-3w-Jw4">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRy-IH-0Np">
+                                <rect key="frame" x="20" y="780" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wRy-IH-0Np" secondAttribute="height" id="KC0-se-Rry"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="currentLocationButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="od0-O4-5zt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mFU-3w-Jw4" secondAttribute="trailing" id="0Kw-yE-mSI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wRy-IH-0Np" secondAttribute="bottom" constant="28" id="Atj-hL-gfN"/>
+                            <constraint firstItem="wRy-IH-0Np" firstAttribute="width" secondItem="mFU-3w-Jw4" secondAttribute="width" multiplier="0.13" id="UQ5-JC-2AR"/>
+                            <constraint firstItem="wRy-IH-0Np" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="WEJ-S9-G5f"/>
                             <constraint firstItem="mFU-3w-Jw4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cfz-ge-b1O"/>
                             <constraint firstItem="mFU-3w-Jw4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pFA-tz-ZBj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mFU-3w-Jw4" secondAttribute="bottom" id="u9b-Jv-cMG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentLocationButton" destination="wRy-IH-0Np" id="vLl-aA-vtn"/>
                         <outlet property="movieTheaterMapView" destination="mFU-3w-Jw4" id="PDJ-rC-TGq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-16" y="74"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="73.660714285714278"/>
         </scene>
     </scenes>
     <resources>
