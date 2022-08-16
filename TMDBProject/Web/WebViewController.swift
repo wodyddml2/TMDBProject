@@ -26,7 +26,7 @@ class WebViewController: UIViewController {
         goForwardButton.webBarButtonStyle("chevron.forward")
     }
     
-    func requestWeb() {
+    private func requestWeb() {
         let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         
         RequestTMDBAPIManager.shared.requestWeb(endPoint,movieID!) { request in

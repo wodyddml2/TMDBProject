@@ -23,17 +23,17 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var movieDayButton: UIButton!
     @IBOutlet weak var movieWeekButton: UIButton!
     
-    let hub = JGProgressHUD()
+    private let hub = JGProgressHUD()
     
-    var dayMovieList: [MovieInfo] = []
-    var weekMovieList: [MovieInfo] = []
+    private var dayMovieList: [MovieInfo] = []
+    private var weekMovieList: [MovieInfo] = []
     
-    var genreList: [Int: String] = [:]
+    private var genreList: [Int: String] = [:]
     
-    var dateCycle = DateCycle.day.rawValue
-    var dayChangePage = 1
-    var weekChangePage = 1
-    var totalPage = 0
+    private var dateCycle = DateCycle.day.rawValue
+    private var dayChangePage = 1
+    private var weekChangePage = 1
+    private var totalPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class MovieViewController: UIViewController {
     
    
     
-    func requestTMDB(_ date: String) {
+    private func requestTMDB(_ date: String) {
         hub.show(in: view)
         
         if date == DateCycle.day.rawValue {

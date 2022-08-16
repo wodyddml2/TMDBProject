@@ -175,8 +175,8 @@
 		6378C33728A4E61D005A3DBA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				6378C33828A4E63E005A3DBA /* MapViewController.swift */,
 				6378C33A28A4E645005A3DBA /* Map.storyboard */,
+				6378C33828A4E63E005A3DBA /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";

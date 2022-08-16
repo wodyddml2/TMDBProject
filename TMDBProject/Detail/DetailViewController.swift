@@ -16,14 +16,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     
-    let hub = JGProgressHUD()
+    private let hub = JGProgressHUD()
     
     var detailList: MovieInfo?
-    var castList: [CastInfo] = []
+    private var castList: [CastInfo] = []
     
     var beforePageName: String?
     
-    var openCloseImage = "chevron.down"
+    private var openCloseImage = "chevron.down"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
         requestCast()
     }
     
-    func requestCast() {
+    private func requestCast() {
         hub.show(in: view)
         let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         

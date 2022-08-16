@@ -1,7 +1,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import SwiftUI
+
 
 class MapViewController: UIViewController {
 
@@ -9,11 +9,11 @@ class MapViewController: UIViewController {
     @IBOutlet weak var currentLocationButton: UIButton!
     
     
-    let theaterList = TheaterList()
+    private let theaterList = TheaterList()
     
     var currentLocation: CLLocationCoordinate2D?
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MapViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .darkGray
         
         locationManager.delegate = self
-       
+        
         currentLocationButton.setImage(UIImage(systemName: "location.circle"), for: .normal)
         currentLocationButton.setTitle("", for: .normal)
         currentLocationButton.backgroundColor = .white
@@ -39,7 +39,7 @@ class MapViewController: UIViewController {
         showNearbyTheaterAlert()
     }
 
-    func setRegionAnnotation(_ center: CLLocationCoordinate2D,_ title: String,_ meter: Double) {
+    private func setRegionAnnotation(_ center: CLLocationCoordinate2D,_ title: String,_ meter: Double) {
         
         let region = MKCoordinateRegion(center: center, latitudinalMeters: meter, longitudinalMeters: meter)
         
@@ -60,7 +60,7 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController {
-    func checkUserDeviceLocationServiceAuthorization() {
+    private func checkUserDeviceLocationServiceAuthorization() {
         let authorization: CLAuthorizationStatus
         
         if #available(iOS 14.0, *) {
@@ -76,7 +76,7 @@ extension MapViewController {
         }
     }
     
-    func checkUserCurrentLocationAuthorization(_ authorization: CLAuthorizationStatus) {
+    private  func checkUserCurrentLocationAuthorization(_ authorization: CLAuthorizationStatus) {
         switch authorization {
         case .notDetermined:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -91,7 +91,7 @@ extension MapViewController {
         default: print("default")
         }
     }
-    func alertAction(_ action: UIAlertAction) {
+    private func alertAction(_ action: UIAlertAction) {
         movieTheaterMapView.removeAnnotations(movieTheaterMapView.annotations)
         for list in theaterList.mapAnnotations {
             if action.title == list.type {
@@ -100,7 +100,7 @@ extension MapViewController {
         }
     }
     
-    func showRequestLocationServiceAlert() {
+    private func showRequestLocationServiceAlert() {
         let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
         let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
           
@@ -115,7 +115,7 @@ extension MapViewController {
         present(requestLocationServiceAlert, animated: true, completion: nil)
       }
     
-    func showNearbyTheaterAlert() {
+    private func showNearbyTheaterAlert() {
         let nearbyTheaterAlert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         
         let cancle = UIAlertAction(title: "취소", style: .cancel)
@@ -163,6 +163,7 @@ extension MapViewController: CLLocationManagerDelegate {
     // iOS 14 이후
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkUserDeviceLocationServiceAuthorization()
+        print(#function)
     }
     // 이전
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

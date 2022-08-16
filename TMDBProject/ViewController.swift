@@ -31,7 +31,7 @@ class ViewController: TabmanViewController {
         TMBbarStyle()
     }
     
-    func TMBbarStyle() {
+    private func TMBbarStyle() {
         let bar = TMBar.ButtonBar()
         
         bar.layout.transitionStyle = .snap
@@ -52,7 +52,7 @@ class ViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
     }
     
-    @objc func leftBar() {
+    @objc private func leftBar() {
         let mapSB = UIStoryboard(name: "Map", bundle: nil)
         guard let mapVC = mapSB.instantiateViewController(withIdentifier: MapViewController.resuableIdentifier) as? MapViewController else { return }
         
@@ -81,15 +81,15 @@ extension ViewController: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-          return viewControllerArr.count
-      }
-
-      func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-          return viewControllerArr[index]
-      }
-
-      func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-          return nil
-      }
+        return viewControllerArr.count
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return viewControllerArr[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
     
 }
