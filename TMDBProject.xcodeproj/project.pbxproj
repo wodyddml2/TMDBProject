@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630A00FC28AB82D5002B61B9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630A00F828AB82BB002B61B9 /* Reusable.framework */; };
-		630A00FD28AB82D5002B61B9 /* Reusable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 630A00F828AB82BB002B61B9 /* Reusable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		630A010028AB86C4002B61B9 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630A00FF28AB86C4002B61B9 /* Intro.storyboard */; };
+		630A010228AB86FF002B61B9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A010128AB86FF002B61B9 /* IntroViewController.swift */; };
+		630A010428AB870E002B61B9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A010328AB870E002B61B9 /* FirstViewController.swift */; };
+		630A010628AB8715002B61B9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A010528AB8715002B61B9 /* SecondViewController.swift */; };
+		630A010828AB895C002B61B9 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630A00F828AB82BB002B61B9 /* Reusable.framework */; };
+		630A010928AB895C002B61B9 /* Reusable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 630A00F828AB82BB002B61B9 /* Reusable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		630A010D28AB99CD002B61B9 /* tway_air.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 630A010C28AB99CD002B61B9 /* tway_air.ttf */; };
 		631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63BD2899F6C50032352C /* AppDelegate.swift */; };
 		631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63BF2899F6C50032352C /* SceneDelegate.swift */; };
 		631C63C22899F6C50032352C /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63C12899F6C50032352C /* MovieViewController.swift */; };
@@ -63,13 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		630A00DB28AB7F62002B61B9 /* Embed Frameworks */ = {
+		630A010A28AB895C002B61B9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				630A00FD28AB82D5002B61B9 /* Reusable.framework in Embed Frameworks */,
+				630A010928AB895C002B61B9 /* Reusable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +83,11 @@
 
 /* Begin PBXFileReference section */
 		630A00F228AB82BB002B61B9 /* Reusable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Reusable.xcodeproj; path = ../Reusable/Reusable.xcodeproj; sourceTree = "<group>"; };
+		630A00FF28AB86C4002B61B9 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		630A010128AB86FF002B61B9 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		630A010328AB870E002B61B9 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		630A010528AB8715002B61B9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		630A010C28AB99CD002B61B9 /* tway_air.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tway_air.ttf; path = ../../../../Downloads/tway_air.ttf; sourceTree = "<group>"; };
 		631C63BA2899F6C50032352C /* TMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631C63BD2899F6C50032352C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631C63BF2899F6C50032352C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +131,7 @@
 				63622D12289A6E71008CFDFF /* SwiftyJSON in Frameworks */,
 				63AAABEC289B9D75002F800A /* JGProgressHUD in Frameworks */,
 				63622D15289A6E7A008CFDFF /* Alamofire in Frameworks */,
-				630A00FC28AB82D5002B61B9 /* Reusable.framework in Frameworks */,
+				630A010828AB895C002B61B9 /* Reusable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +152,25 @@
 				630A00FA28AB82BB002B61B9 /* ReusableTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		630A00FE28AB86BA002B61B9 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				630A00FF28AB86C4002B61B9 /* Intro.storyboard */,
+				630A010128AB86FF002B61B9 /* IntroViewController.swift */,
+				630A010328AB870E002B61B9 /* FirstViewController.swift */,
+				630A010528AB8715002B61B9 /* SecondViewController.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		630A010B28AB99BF002B61B9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				630A010C28AB99CD002B61B9 /* tway_air.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		631C63B12899F6C50032352C = {
@@ -166,6 +195,7 @@
 		631C63BC2899F6C50032352C /* TMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				630A010B28AB99BF002B61B9 /* Fonts */,
 				63622D05289A5630008CFDFF /* Resources */,
 				63AAABED289B9E7F002F800A /* Extension */,
 				63622D16289A71E1008CFDFF /* InfoStruct */,
@@ -173,6 +203,7 @@
 				631C63BF2899F6C50032352C /* SceneDelegate.swift */,
 				631C63C32899F6C50032352C /* Main.storyboard */,
 				636EC445289E4E9F00EEA09D /* ViewController.swift */,
+				630A00FE28AB86BA002B61B9 /* Intro */,
 				63622D0C289A6C4B008CFDFF /* Movie_TV */,
 				63AAABEE289B9EAE002F800A /* Detail */,
 				63A5187E289CDEF60081EA59 /* Web */,
@@ -265,7 +296,7 @@
 				631C63B62899F6C50032352C /* Sources */,
 				631C63B72899F6C50032352C /* Frameworks */,
 				631C63B82899F6C50032352C /* Resources */,
-				630A00DB28AB7F62002B61B9 /* Embed Frameworks */,
+				630A010A28AB895C002B61B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,11 +386,13 @@
 				631C63CA2899F6C50032352C /* LaunchScreen.storyboard in Resources */,
 				63AAABFE289BB5BF002F800A /* OverViewDetailTableViewCell.xib in Resources */,
 				63622D0B289A6687008CFDFF /* MovieCollectionViewCell.xib in Resources */,
+				630A010D28AB99CD002B61B9 /* tway_air.ttf in Resources */,
 				631C63C72899F6C50032352C /* Assets.xcassets in Resources */,
 				63AAAC02289BB5D1002F800A /* CastDetailTableViewCell.xib in Resources */,
 				631C63C52899F6C50032352C /* Main.storyboard in Resources */,
 				6378C33B28A4E645005A3DBA /* Map.storyboard in Resources */,
 				63AAABF0289B9EC9002F800A /* Detail.storyboard in Resources */,
+				630A010028AB86C4002B61B9 /* Intro.storyboard in Resources */,
 				63A51882289CDF210081EA59 /* Web.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,12 +404,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630A010628AB8715002B61B9 /* SecondViewController.swift in Sources */,
 				63AAABF2289B9F2B002F800A /* DetailViewController.swift in Sources */,
 				63622D1A289A769C008CFDFF /* UILabel+Extension.swift in Sources */,
 				631C63C22899F6C50032352C /* MovieViewController.swift in Sources */,
 				631C63BE2899F6C50032352C /* AppDelegate.swift in Sources */,
 				63DF2F7428A123F700E4DE23 /* URL+Extension.swift in Sources */,
 				631C63C02899F6C50032352C /* SceneDelegate.swift in Sources */,
+				630A010428AB870E002B61B9 /* FirstViewController.swift in Sources */,
 				6378C33928A4E63E005A3DBA /* MapViewController.swift in Sources */,
 				63A51884289CF1960081EA59 /* APIManager.swift in Sources */,
 				6378C33D28A4ED31005A3DBA /* Theater.swift in Sources */,
@@ -386,6 +421,7 @@
 				63622D18289A720E008CFDFF /* MovieInfo.swift in Sources */,
 				636EC441289E46A800EEA09D /* TvViewController.swift in Sources */,
 				63AAABFA289BACA2002F800A /* CastInfo.swift in Sources */,
+				630A010228AB86FF002B61B9 /* IntroViewController.swift in Sources */,
 				63AAAC01289BB5D1002F800A /* CastDetailTableViewCell.swift in Sources */,
 				63622D0A289A6687008CFDFF /* MovieCollectionViewCell.swift in Sources */,
 				63A51880289CDF1A0081EA59 /* WebViewController.swift in Sources */,

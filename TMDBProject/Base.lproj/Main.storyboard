@@ -96,7 +96,7 @@
         <!--View Controller-->
         <scene sceneID="wZZ-Hx-WXw">
             <objects>
-                <viewController id="61S-za-Tc1" customClass="ViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="61S-za-Tc1" customClass="ViewController" customModule="TMDBProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2la-3O-EgE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
