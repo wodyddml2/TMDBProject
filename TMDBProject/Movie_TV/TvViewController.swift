@@ -1,4 +1,5 @@
 import UIKit
+import Reusable
 
 import JGProgressHUD
 
@@ -30,7 +31,7 @@ class TvViewController: UIViewController {
         tvCollectionView.dataSource = self
         tvCollectionView.prefetchDataSource = self
         
-        tvCollectionView.register(UINib(nibName: MovieCollectionViewCell.resuableIdentifier, bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.resuableIdentifier)
+        tvCollectionView.register(UINib(nibName: MovieCollectionViewCell.reusableIdentifier, bundle: nil), forCellWithReuseIdentifier: MovieCollectionViewCell.reusableIdentifier)
         
         tvDayButton.dayWeekButtonClickedStyle("Day")
         tvWeekButton.dayWeekButtonStyle("Week")
@@ -113,7 +114,7 @@ extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.resuableIdentifier, for: indexPath) as? MovieCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reusableIdentifier, for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell()
         }
         if dateCycle == DateCycle.day.rawValue {
@@ -152,13 +153,13 @@ extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource
     
     @objc func videoButtonClicked(_ sender: UIButton) {
         let webSB = UIStoryboard(name: "Web", bundle: nil)
-        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.resuableIdentifier) as? WebViewController else { return }
+        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.reusableIdentifier) as? WebViewController else { return }
         if dateCycle == DateCycle.day.rawValue {
             webVC.movieID = dayTVList[sender.tag].movieID
         } else {
             webVC.movieID = weekTVList[sender.tag].movieID
         }
-            webVC.beforePageName = TvViewController.resuableIdentifier
+            webVC.beforePageName = TvViewController.reusableIdentifier
         
        navigationController?.pushViewController(webVC, animated: true)
     }
@@ -172,14 +173,14 @@ extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let detailSB = UIStoryboard(name: "Detail", bundle: nil)
-        guard let detailVC = detailSB.instantiateViewController(withIdentifier: DetailViewController.resuableIdentifier) as? DetailViewController else { return }
+        guard let detailVC = detailSB.instantiateViewController(withIdentifier: DetailViewController.reusableIdentifier) as? DetailViewController else { return }
         if dateCycle == DateCycle.day.rawValue {
             detailVC.detailList = dayTVList[indexPath.item]
         } else {
             detailVC.detailList = weekTVList[indexPath.item]
         }
         
-        detailVC.beforePageName = TvViewController.resuableIdentifier
+        detailVC.beforePageName = TvViewController.reusableIdentifier
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

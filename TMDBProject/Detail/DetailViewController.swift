@@ -1,4 +1,5 @@
 import UIKit
+import Reusable
  
 import JGProgressHUD
 import Kingfisher
@@ -33,9 +34,9 @@ class DetailViewController: UIViewController {
         detailTabelView.delegate = self
         detailTabelView.dataSource = self
         
-        detailTabelView.register(UINib(nibName: OverViewDetailTableViewCell.resuableIdentifier, bundle: nil), forCellReuseIdentifier: OverViewDetailTableViewCell.resuableIdentifier)
+        detailTabelView.register(UINib(nibName: OverViewDetailTableViewCell.reusableIdentifier, bundle: nil), forCellReuseIdentifier: OverViewDetailTableViewCell.reusableIdentifier)
         
-        detailTabelView.register(UINib(nibName: CastDetailTableViewCell.resuableIdentifier, bundle: nil), forCellReuseIdentifier: CastDetailTableViewCell.resuableIdentifier)
+        detailTabelView.register(UINib(nibName: CastDetailTableViewCell.reusableIdentifier, bundle: nil), forCellReuseIdentifier: CastDetailTableViewCell.reusableIdentifier)
         //
         
         backPosterImage.kf.setImage(with: detailList?.movieBackPoster)
@@ -50,7 +51,7 @@ class DetailViewController: UIViewController {
     
     private func requestCast() {
         hub.show(in: view)
-        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
+        let endPoint = beforePageName == MovieViewController.reusableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         
         RequestTMDBAPIManager.shared.requestCast(endPoint,detailList!.movieID) { castList in
             self.castList.append(contentsOf: castList)
@@ -80,7 +81,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewDetailTableViewCell.resuableIdentifier, for: indexPath) as? OverViewDetailTableViewCell else {
+            guard let overviewCell = tableView.dequeueReusableCell(withIdentifier: OverViewDetailTableViewCell.reusableIdentifier, for: indexPath) as? OverViewDetailTableViewCell else {
                 return UITableViewCell()
             }
             overviewCell.overviewLabel.text = detailList?.movieOverView
@@ -90,7 +91,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             overviewCell.openCloseButton.setImage(UIImage(systemName: openCloseImage), for: .normal)
             return overviewCell
         } else {
-            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastDetailTableViewCell.resuableIdentifier, for: indexPath) as? CastDetailTableViewCell else {
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: CastDetailTableViewCell.reusableIdentifier, for: indexPath) as? CastDetailTableViewCell else {
                 return UITableViewCell()
             }
             

@@ -1,5 +1,6 @@
 import UIKit
 import WebKit
+import Reusable
 
 
 class WebViewController: UIViewController {
@@ -27,7 +28,7 @@ class WebViewController: UIViewController {
     }
     
     private func requestWeb() {
-        let endPoint = beforePageName == MovieViewController.resuableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
+        let endPoint = beforePageName == MovieViewController.reusableIdentifier ? EndPoint.movie.tmdbURL : EndPoint.tv.tmdbURL
         
         RequestTMDBAPIManager.shared.requestWeb(endPoint,movieID!) { request in
             self.movieVideoWeb.load(request)

@@ -1,4 +1,5 @@
 import UIKit
+import Reusable
 
 import Tabman
 import Pageboy
@@ -11,8 +12,8 @@ class ViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let movieVC = sb.instantiateViewController(withIdentifier: MovieViewController.resuableIdentifier) as? MovieViewController else {return}
-        guard let tvVC = sb.instantiateViewController(withIdentifier: TvViewController.resuableIdentifier) as? TvViewController else {return}
+        guard let movieVC = sb.instantiateViewController(withIdentifier: MovieViewController.reusableIdentifier) as? MovieViewController else {return}
+        guard let tvVC = sb.instantiateViewController(withIdentifier: TvViewController.reusableIdentifier) as? TvViewController else {return}
         
         viewControllerArr.append(contentsOf: [movieVC, tvVC])
         
@@ -54,7 +55,7 @@ class ViewController: TabmanViewController {
     
     @objc private func leftBar() {
         let mapSB = UIStoryboard(name: "Map", bundle: nil)
-        guard let mapVC = mapSB.instantiateViewController(withIdentifier: MapViewController.resuableIdentifier) as? MapViewController else { return }
+        guard let mapVC = mapSB.instantiateViewController(withIdentifier: MapViewController.reusableIdentifier) as? MapViewController else { return }
         
         
         

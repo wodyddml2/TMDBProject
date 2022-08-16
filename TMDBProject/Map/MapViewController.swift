@@ -1,6 +1,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Reusable
 
 
 class MapViewController: UIViewController {
@@ -35,8 +36,16 @@ class MapViewController: UIViewController {
     }
     
     @objc func rightButtonClicked() {
-       
-        showNearbyTheaterAlert()
+            
+        showNearbyTheaterAlert { _ in
+            self.movieTheaterMapView.removeAnnotations(self.movieTheaterMapView.annotations)
+            for list in self.theaterList.mapAnnotations {
+                self.setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 14000)
+            }
+        } completionHandler: { action in
+            self.alertAction(action)
+        }
+        
     }
 
     private func setRegionAnnotation(_ center: CLLocationCoordinate2D,_ title: String,_ meter: Double) {
@@ -91,6 +100,7 @@ extension MapViewController {
         default: print("default")
         }
     }
+    
     private func alertAction(_ action: UIAlertAction) {
         movieTheaterMapView.removeAnnotations(movieTheaterMapView.annotations)
         for list in theaterList.mapAnnotations {
@@ -98,51 +108,6 @@ extension MapViewController {
                 setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 9000)
             }
         }
-    }
-    
-    private func showRequestLocationServiceAlert() {
-        let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
-        let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
-          
-            if let appSetting = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(appSetting)
-            }
-        }
-        let cancel = UIAlertAction(title: "취소", style: .default)
-        requestLocationServiceAlert.addAction(cancel)
-        requestLocationServiceAlert.addAction(goSetting)
-        
-        present(requestLocationServiceAlert, animated: true, completion: nil)
-      }
-    
-    private func showNearbyTheaterAlert() {
-        let nearbyTheaterAlert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        
-        let cancle = UIAlertAction(title: "취소", style: .cancel)
-        let all = UIAlertAction(title: "전체보기", style: .default) { _ in
-            self.movieTheaterMapView.removeAnnotations(self.movieTheaterMapView.annotations)
-            for list in self.theaterList.mapAnnotations {
-                    self.setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 14000)
-            }
-            
-        }
-        let cgv = UIAlertAction(title: "CGV", style: .default) { action in
-            self.alertAction(action)
-            
-        }
-        let lotte = UIAlertAction(title: "롯데시네마", style: .default) { action in
-            self.alertAction(action)
-        }
-        let megabox = UIAlertAction(title: "메가박스", style: .default) { action in
-            self.alertAction(action)
-        }
-        
-        [cancle, cgv, lotte, megabox, all].forEach {
-            nearbyTheaterAlert.addAction($0)
-        }
-        
-        present(nearbyTheaterAlert, animated: true)
-       
     }
     
 }
