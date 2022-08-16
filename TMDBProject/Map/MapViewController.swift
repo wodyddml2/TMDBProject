@@ -35,17 +35,17 @@ class MapViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    
     @objc func rightButtonClicked() {
             
         showNearbyTheaterAlert { _ in
             self.movieTheaterMapView.removeAnnotations(self.movieTheaterMapView.annotations)
             for list in self.theaterList.mapAnnotations {
-                self.setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 14000)
-            }
+                self.setRegionAnnotation(CLLocationCoordinate2D(latitude: list.latitude, longitude: list.longitude), list.location, 14000)}
         } completionHandler: { action in
             self.alertAction(action)
         }
-        
+
     }
 
     private func setRegionAnnotation(_ center: CLLocationCoordinate2D,_ title: String,_ meter: Double) {
@@ -94,7 +94,11 @@ extension MapViewController {
             
             let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
             setRegionAnnotation(center, "청년취업사관학교 영등포 캠퍼스", 1000)
-            showRequestLocationServiceAlert()
+            showRequestLocationServiceAlert(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", buttonTitle: "설정으로 이동") { _ in
+                if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(appSetting)
+                }
+            }
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         default: print("default")
