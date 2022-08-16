@@ -19,8 +19,16 @@ class SecondViewController: UIViewController {
         secondIntroStartLabel.text = "시작하기"
         secondIntroStartLabel.textColor = .darkGray
         secondIntroStartLabel.font = UIFont(name: "twayair", size: 35)
+        secondIntroStartLabel.alpha = 0
         
         secondIntroButton.setTitle("", for: .normal)
+        
+        UIView.animate(withDuration: 3) {
+            self.secondIntroStartLabel.alpha = 1
+        } completion: { _ in
+            
+        }
+
 
     }
     
