@@ -169,7 +169,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
             } else {
                 vc.movieID = weekMovieList[sender.tag].movieID
             }
-            vc.beforePageName = TvViewController.reusableIdentifier
+                vc.beforePageName = MovieViewController.reusableIdentifier
         }
     }
     
@@ -188,7 +188,7 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
             } else {
                 vc.detailList = weekMovieList[indexPath.item]
             }
-            vc.beforePageName = TvViewController.reusableIdentifier
+            vc.beforePageName = MovieViewController.reusableIdentifier
         }
     }
 }
