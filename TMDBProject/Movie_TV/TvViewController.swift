@@ -152,16 +152,24 @@ extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     @objc func videoButtonClicked(_ sender: UIButton) {
-        let webSB = UIStoryboard(name: "Web", bundle: nil)
-        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.reusableIdentifier) as? WebViewController else { return }
-        if dateCycle == DateCycle.day.rawValue {
-            webVC.movieID = dayTVList[sender.tag].movieID
-        } else {
-            webVC.movieID = weekTVList[sender.tag].movieID
+//        let webSB = UIStoryboard(name: "Web", bundle: nil)
+//        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.reusableIdentifier) as? WebViewController else { return }
+//        if dateCycle == DateCycle.day.rawValue {
+//            webVC.movieID = dayTVList[sender.tag].movieID
+//        } else {
+//            webVC.movieID = weekTVList[sender.tag].movieID
+//        }
+//            webVC.beforePageName = TvViewController.reusableIdentifier
+//
+//       navigationController?.pushViewController(webVC, animated: true)
+        transitionViewController(stroyboard: "Web", viewController: WebViewController(), transition: .push) { vc in
+            if dateCycle == DateCycle.day.rawValue {
+                vc.movieID = dayTVList[sender.tag].movieID
+            } else {
+                vc.movieID = weekTVList[sender.tag].movieID
+            }
+            vc.beforePageName = TvViewController.reusableIdentifier
         }
-            webVC.beforePageName = TvViewController.reusableIdentifier
-        
-       navigationController?.pushViewController(webVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -172,17 +180,14 @@ extension TvViewController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let detailSB = UIStoryboard(name: "Detail", bundle: nil)
-        guard let detailVC = detailSB.instantiateViewController(withIdentifier: DetailViewController.reusableIdentifier) as? DetailViewController else { return }
-        if dateCycle == DateCycle.day.rawValue {
-            detailVC.detailList = dayTVList[indexPath.item]
-        } else {
-            detailVC.detailList = weekTVList[indexPath.item]
+        transitionViewController(stroyboard: "Detail", viewController: DetailViewController(), transition: .push) { vc in
+            if dateCycle == DateCycle.day.rawValue {
+                vc.detailList = dayTVList[indexPath.item]
+            } else {
+                vc.detailList = weekTVList[indexPath.item]
+            }
+            vc.beforePageName = TvViewController.reusableIdentifier
         }
-        
-        detailVC.beforePageName = TvViewController.reusableIdentifier
-        
-        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

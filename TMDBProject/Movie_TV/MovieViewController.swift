@@ -163,16 +163,14 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     @objc func videoButtonClicked(_ sender: UIButton) {
-        let webSB = UIStoryboard(name: "Web", bundle: nil)
-        guard let webVC = webSB.instantiateViewController(withIdentifier: WebViewController.reusableIdentifier) as? WebViewController else { return }
-        if dateCycle == DateCycle.day.rawValue {
-            webVC.movieID = dayMovieList[sender.tag].movieID
-        } else {
-            webVC.movieID = weekMovieList[sender.tag].movieID
+        transitionViewController(stroyboard: "Web", viewController: WebViewController(), transition: .push) { vc in
+            if dateCycle == DateCycle.day.rawValue {
+                vc.movieID = dayMovieList[sender.tag].movieID
+            } else {
+                vc.movieID = weekMovieList[sender.tag].movieID
+            }
+            vc.beforePageName = TvViewController.reusableIdentifier
         }
-            webVC.beforePageName = MovieViewController.reusableIdentifier
-        
-       navigationController?.pushViewController(webVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -184,17 +182,14 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let detailSB = UIStoryboard(name: "Detail", bundle: nil)
-        guard let detailVC = detailSB.instantiateViewController(withIdentifier: DetailViewController.reusableIdentifier) as? DetailViewController else { return }
-        if dateCycle == DateCycle.day.rawValue {
-            detailVC.detailList = dayMovieList[indexPath.item]
-        } else {
-            detailVC.detailList = weekMovieList[indexPath.item]
+        transitionViewController(stroyboard: "Detail", viewController: DetailViewController(), transition: .push) { vc in
+            if dateCycle == DateCycle.day.rawValue {
+                vc.detailList = dayMovieList[indexPath.item]
+            } else {
+                vc.detailList = weekMovieList[indexPath.item]
+            }
+            vc.beforePageName = TvViewController.reusableIdentifier
         }
-        
-        detailVC.beforePageName = MovieViewController.reusableIdentifier
-        
-        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
